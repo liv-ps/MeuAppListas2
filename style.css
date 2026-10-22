@@ -1,0 +1,680 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    touch-action: manipulation;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    width: 100%;
+    min-height: 100dvh;
+
+    margin: 0;
+    padding: 20px;
+
+    background-color: #800020;
+
+    color: #111111;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+header {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+h1 {
+    margin: 0;
+
+    color: white;
+
+    font-family: "Josefin Sans", sans-serif;
+
+    font-size: 23px;
+
+    font-weight: 300;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   MENU DAS LISTAS
+========================================= */
+
+#menuListas {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 15px;
+
+    padding: 5px 0;
+
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+#menuListas::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================
+   BOTÃO +
+========================================= */
+
+.botaoNovaLista {
+    flex: 0 0 auto;
+
+    width: 40px;
+    height: 40px;
+
+    border: 2px solid white;
+
+    border-radius: 50%;
+
+    background-color: white;
+
+    color: #800020;
+
+    font-size: 25px;
+
+    font-weight: 300;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.botaoNovaLista:active {
+    transform: scale(0.94);
+}
+
+
+/* =========================================
+   BOTÕES DAS LISTAS
+========================================= */
+
+.botaoLista {
+    flex: 0 0 auto;
+
+    padding: 9px 17px;
+
+    border: 2px solid white;
+
+    border-radius: 20px;
+
+    background-color: transparent;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    touch-action: none;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        transform 0.15s,
+        opacity 0.15s;
+}
+
+.botaoLista.ativo {
+    background-color: white;
+
+    color: #800020;
+
+    font-weight: bold;
+}
+
+.botaoLista:active {
+    transform: scale(0.97);
+}
+
+.botaoLista.lista-arrastando {
+    opacity: 0.45;
+
+    transform: scale(0.95);
+}
+
+
+/* =========================================
+   ÁREA DA LISTA
+========================================= */
+
+#listas {
+    width: 100%;
+
+    max-width: 600px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   CARTÃO DA LISTA
+========================================= */
+
+.lista {
+    width: 100%;
+
+    min-height: 450px;
+
+    background-color: white;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================
+   CABEÇALHO DA LISTA E BOTÃO 3 PONTOS
+========================================= */
+
+.cabecalhoLista {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.cabecalhoLista h2 {
+    text-align: left;
+
+    color: #800020;
+
+    margin: 0;
+
+    font-size: 23px;
+
+    font-weight: 500;
+
+    overflow-wrap: anywhere;
+}
+
+.botaoTresPontos {
+    background: transparent;
+
+    border: none;
+
+    color: #800020;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    padding: 4px 8px;
+
+    border-radius: 50%;
+
+    line-height: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition: background-color 0.15s;
+}
+
+.botaoTresPontos:active,
+.botaoTresPontos:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* =========================================
+   CAMPO DE ADICIONAR ITEM
+========================================= */
+
+.caixaAdicionar {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   CAMPO DE TEXTO
+========================================= */
+
+.caixaAdicionar input {
+    flex: 1;
+
+    min-width: 0;
+
+    width: 100%;
+
+    height: 45px;
+
+    padding: 12px 14px;
+
+    border: 1px solid #999999;
+
+    border-radius: 25px;
+
+    outline: none;
+
+    font-size: 16px;
+
+    font-family: Arial, sans-serif;
+
+    background-color: white;
+
+    color: #111111;
+
+    -webkit-appearance: none;
+
+    appearance: none;
+}
+
+.caixaAdicionar input:focus {
+    border-color: #800020;
+
+    outline: none;
+}
+
+
+/* =========================================
+   BOTÃO DE ENVIAR
+========================================= */
+
+.caixaAdicionar button {
+    width: 45px;
+
+    height: 45px;
+
+    min-width: 45px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background-color: #800020;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        transform 0.15s,
+        background-color 0.15s;
+}
+
+.caixaAdicionar button:active {
+    transform: scale(0.92);
+
+    background-color: #5f0018;
+}
+
+
+/* =========================================
+   LISTA DE ITENS
+========================================= */
+
+.lista ul {
+    padding: 0;
+
+    margin: 0;
+
+    list-style: none;
+}
+
+
+/* =========================================
+   ITEM DA TAREFA
+========================================= */
+
+.lista li.itemTarefa {
+    width: 100%;
+
+    margin-bottom: 8px;
+
+    padding: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    border-radius: 8px;
+
+    background-color: transparent;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    transition:
+        background-color 0.15s,
+        opacity 0.15s,
+        transform 0.15s;
+}
+
+.lista li.itemTarefa:hover {
+    background-color: #f4f4f4;
+}
+
+
+/* =========================================
+   CHECKBOX
+========================================= */
+
+.lista li.itemTarefa input[type="checkbox"] {
+    width: 18px;
+
+    height: 18px;
+
+    margin: 0;
+
+    flex-shrink: 0;
+
+    accent-color: #800020;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+}
+
+
+/* =========================================
+   TEXTO DA TAREFA
+========================================= */
+
+.textoItem {
+    flex: 1;
+
+    min-width: 0;
+
+    overflow-wrap: anywhere;
+
+    outline: none;
+
+    cursor: text;
+
+    user-select: text;
+
+    -webkit-user-select: text;
+
+    touch-action: manipulation;
+
+    line-height: 1.4;
+
+    font-size: 16px;
+}
+
+.textoItem:focus {
+    background-color: #f5f5f5;
+
+    border-radius: 4px;
+
+    padding: 3px 5px;
+}
+
+
+/* =========================================
+   TAREFAS CONCLUÍDAS
+========================================= */
+
+.tarefasConcluidas {
+    margin-top: 25px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #dddddd;
+}
+
+.tarefasConcluidas summary {
+    color: #800020;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    list-style: none;
+
+    padding: 8px 0;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+}
+
+.tarefasConcluidas summary::-webkit-details-marker {
+    display: none;
+}
+
+.tarefasConcluidas summary::before {
+    content: "›";
+
+    display: inline-block;
+
+    margin-right: 8px;
+
+    font-size: 20px;
+
+    line-height: 10px;
+
+    transition: transform 0.2s;
+}
+
+.tarefasConcluidas[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.tarefasConcluidas li {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 8px;
+
+    padding: 9px;
+
+    opacity: 0.65;
+
+    cursor: default;
+
+    touch-action: auto;
+}
+
+.tarefasConcluidas li input {
+    width: 18px;
+
+    height: 18px;
+
+    accent-color: #800020;
+
+    flex-shrink: 0;
+}
+
+.tarefasConcluidas li span {
+    flex: 1;
+
+    overflow-wrap: anywhere;
+
+    text-decoration: line-through;
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    html,
+    body {
+        width: 100%;
+
+        min-height: 100dvh;
+
+        overflow-x: hidden;
+    }
+
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    #menuListas {
+        margin-bottom: 15px;
+    }
+
+    .botaoNovaLista {
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 24px;
+    }
+
+    .botaoLista {
+        padding: 8px 15px;
+
+        font-size: 14px;
+    }
+
+    .lista {
+        min-height: 450px;
+
+        padding: 20px;
+
+        border-radius: 18px;
+    }
+
+    .cabecalhoLista h2 {
+        font-size: 21px;
+    }
+
+    .caixaAdicionar {
+        margin-bottom: 18px;
+    }
+
+    .caixaAdicionar input {
+        height: 45px;
+
+        font-size: 16px;
+    }
+
+    .caixaAdicionar button {
+        width: 45px;
+
+        height: 45px;
+
+        min-width: 45px;
+    }
+
+    .lista li.itemTarefa {
+        padding: 11px 8px;
+
+        margin-bottom: 6px;
+    }
+
+    .textoItem {
+        font-size: 16px;
+    }
+
+    .tarefasConcluidas summary {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================
+   IPHONE
+========================================= */
+
+@supports (-webkit-touch-callout: none) {
+
+    .caixaAdicionar input {
+        font-size: 16px;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+}
